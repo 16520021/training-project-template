@@ -1,14 +1,2 @@
 // Home page styles
 @import "master-page";
-
-#content {
-    .content-item-wrapper {
-        display: flex;
-        flex-direction: column;
-
-        .content-item {
-            display: flex;
-            flex-direction: row;
-        }
-    }
-}

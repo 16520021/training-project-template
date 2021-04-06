@@ -1,0 +1,51 @@
+.data-table {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+
+    thead {
+        border-bottom: solid #ddd 1px;
+    }
+
+    td {
+        padding: 10px 0;
+    }
+
+    @include media-breakpoint-down(sm)  {
+        thead {
+            border: none;
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+
+        tr {
+            border-bottom: 3px solid #ddd;
+            display: block;
+            margin-bottom: 0.625em;
+            width: 100vw;
+        }
+
+        td {
+            display: flex;
+            text-align: left;
+
+            &::before {
+                width: 35%;
+                content: attr(data-label);
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+.col-width-15 {
+    width: 15%;
+}
+
+.col-width-30 {
+    width: 30%;
+}

@@ -3,6 +3,7 @@
 
 <head>
 	<link rel="stylesheet" href="dist/css/home-page.css">
+	<link rel="stylesheet" href="dist/css/bootstrap-icon/bootstrap-icons.css">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width">
 </head>
@@ -16,102 +17,76 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
 				<li class="nav-item active">
-					<a class="nav-link" href="#">New</a>
+					<a class="nav-link" href="#"><i class="pr-1 bi bi-plus"></i>New<i class=" pl-1 bi bi-chevron-compact-down"></i></a>
 				</li>
 				<li class="nav-item active">
-					<a class="nav-link" href="#">Upload</a>
+					<a class="nav-link" href="#"><i class="pr-1 bi bi-upload"></i>Upload<i class=" pl-1 bi bi-chevron-compact-down"></i></a>
 				</li>
 				<li class="nav-item active">
-					<a class="nav-link" href="#">Sync</a>
+					<a class="nav-link" href="#"><i class="pr-1 bi bi-arrow-repeat"></i>Sync</a>
 				</li>
 				<li class="nav-item active">
-					<a class="nav-link" href="#">Export to Excel</a>
+					<a class="nav-link" href="#"><i class="pr-1 bi bi-file-excel"></i>Export to Excel</a>
 				</li>
 				<li class="nav-item active">
-					<a class="nav-link" href="#">Flow</a>
+					<a class="nav-link" href="#"><i class="pr-1 bi bi-file-excel"></i>Flow<i class=" pl-1 bi bi-chevron-compact-down"></i></a>
 				</li>
 			</ul>
 		</div>
 	</nav>
-	<div>
+
+	<div class="header">
 		<h1>Documents</h1>
 	</div>
-	<div id="content" class="d-block d-md-none">
-		<div class="content-item-wrapper">
-			<div class="content-item"><b>File Type</b></div>
-			<div class="content-item">
-				<p class="col-sm-4"><b>Name</b></p>
-				<p class="col-sm-8">CAS</p>
-			</div>
-			<div class="content-item">
-				<P class="col-sm-4"><b>Modifed</b></P>
-				<p class="col-sm-8">April 30</p>
-			</div>
-			<div class="content-item">
-				<p class="col-sm-4"><b>Modified By</b></p>
-				<p class="col-sm-8">Megan Bowen</p>
-			</div>
-		</div>
-		<div class="content-item-wrapper">
-			<div><b>File type</b></div>
-			<div>
-				<p><b>Name</b></p>
-				<p>CoasterAndBargeLoading.xlsx</p>
-			</div>
-			<div>
-				<p><b>Modifed</b></p>
-				<p>A few seconds ago</p>
-			</div>
-			<div>
-				<p><b>Modified by</b></p>
-				<p>Administrator MOD</p>
-			</div>
-		</div>
-		<div class="content-item-wrapper">
-			<div><b>File Type</b></div>
-			<div>
-				<p><b>Name</b></p>
-				<p>RevenueByServices</p>
-			</div>
-			<div>
-				<p><b>Modified</b></p>
-				<p>A few second ago</p>
-			</div>
-			<div>
-				<p><b>Modifed By</b></p>
-				<p>Adminitrator MOD</p>
-			</div>
-		</div>
-		<div class="content-item-wrapper">
-			<div><b>File Type</b></div>
-			<div>
-				<p><b>Name</b></p>
-				<p>RevenueByServices2016</p>
-			</div>
-			<div>
-				<p><b>Modified</b></p>
-				<p>A few second ago</p>
-			</div>
-			<div>
-				<p><b>Modifed By</b></p>
-				<p>Adminitrator MOD</p>
-			</div>
-		</div>
-		<div class="content-item-wrapper">
-			<div><b>File Type</b></div>
-			<div>
-				<p><b>Name</b></p>
-				<p>RevenueByServices2017</p>
-			</div>
-			<div>
-				<p><b>Modified</b></p>
-				<p>A few second ago</p>
-			</div>
-			<div>
-				<p><b>Modifed By</b></p>
-				<p>Adminitrator MOD</p>
-			</div>
-		</div>
+	<div id="content">
+		<table class="data-table">
+			<thead>
+				<tr>
+					<th class="d-inline-block d-md-none">File Type</th>
+					<th class="pl-md-5 col-width-30"><i class="pr-2 bi bi-file-earmark"></i>Name<i class=" pl-1 bi bi-chevron-compact-down"></i></th>
+					<th class="col-width-15">Modified<i class=" pl-1 bi bi-chevron-compact-down"></i></th>
+					<th class="col-width-15">Modified By<i class="pl-1 bi bi-chevron-compact-down"></i></th>
+					<th class="d-none d-md-inline-block"><i class="pr-1 bi bi-plus"></i>Add Column</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td class="d-inline-block d-md-none" data-label="File Type"></td>
+					<td class="pl-md-5" data-label="Name"><i class="d-none d-md-inline-block bi bi-folder-fill pr-2"></i>CAS</td>
+					<td data-label="Modified">April 30</td>
+					<td data-label="Modified By">Megan Bowen</td>
+					<td class="d-none d-md-inline-block"></td>
+				</tr>
+				<tr>
+					<td class="d-inline-block d-md-none" data-label="File Type"></td>
+					<td class="pl-md-5" data-label="Name"><i class="d-none d-md-inline-block bi bi-file-earmark-excel-fill pr-2"></i>CoasterAndBargeLoading.xlxs</td>
+					<td data-label="Modified">A few seconds ago</td>
+					<td data-label="Modified By">Administrator MOD</td>
+					<td class="d-none d-md-inline-block"></td>
+				</tr>
+				<tr>
+					<td class="d-inline-block d-md-none" data-label="File Type"></td>
+					<td class="pl-md-5" data-label="Name"><i class="d-none d-md-inline-block bi bi-file-earmark-excel-fill pr-2"></i>RevenueByServices</td>
+					<td data-label="Modified">A few seconds ago</td>
+					<td data-label="Modified By">Administrator MOD</td>
+					<td class="d-none d-md-inline-block"></td>
+				</tr>
+				<tr>
+					<td class="d-inline-block d-md-none" data-label="File Type"></td>
+					<td class="pl-md-5" data-label="Name"><i class="d-none d-md-inline-block bi bi-file-earmark-excel-fill pr-2"></i>RevenueByServices2016</td>
+					<td data-label="Modified">A few seconds ago</td>
+					<td data-label="Modified By">Administrator MOD</td>
+					<td class="d-none d-md-inline-block"></td>
+				</tr>
+				<tr>
+					<td class="d-inline-block d-md-none" data-label="File Type"></td>
+					<td class="pl-md-5" data-label="Name"><i class="d-none d-md-inline-block bi bi-file-earmark-excel-fill pr-2"></i>RevenueByServices2017</td>
+					<td data-label="Modified">A few seconds ago</td>
+					<td data-label="Modified By">Administrator MOD</td>
+					<td class="d-none d-md-inline-block"></td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
 		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
