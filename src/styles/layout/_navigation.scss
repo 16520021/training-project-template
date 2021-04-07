@@ -6,9 +6,18 @@
         .nav-item {
             padding: 0 0.5rem;
 
-            .bi {
-                &:first-child {
+            .bi-plus, .bi-upload, .bi-arrow-repeat, .bi-file-excel {
                     color: $purple;
+            }
+
+            .nav-link {
+                &.d-flex {
+                    gap: 1rem;
+                    align-items: center;
+
+                    @include media-breakpoint-up(sm) {
+                        gap: 0.5rem; 
+                    }
                 }
             }
         }
