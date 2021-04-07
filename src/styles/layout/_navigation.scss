@@ -1,6 +1,8 @@
 // Navigation styles
 .navbar {
     background-color: $light-gray;
+    padding-top:0;
+    padding-bottom: 0;
 
     .navbar-nav {
         .nav-item {
@@ -18,6 +20,12 @@
                     @include media-breakpoint-up(sm) {
                         gap: 0.5rem; 
                     }
+                }
+            }
+
+            @include media-breakpoint-up(sm) {
+                &:hover {
+                    background-color: $medium-gray;
                 }
             }
         }

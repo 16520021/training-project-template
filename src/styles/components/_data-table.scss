@@ -1,3 +1,5 @@
+$border: 1px solid $light-gray;
+
 .data-table {
     width: 100%;
     margin-left: auto;
@@ -14,12 +16,20 @@
 
         th {
             font-weight: $normal-font-weight;
+
+            &:hover {
+                background-color: $medium-gray;
+            }
         }
     }
 
     tbody {
         tr {
-            border-bottom: 1px solid $light-gray;
+            border-bottom: $border;
+
+            &:hover {
+                background-color: $medium-gray;
+            }
         }
     }
 
@@ -41,7 +51,7 @@
         }
 
         tr {
-            border: 1px solid $light-gray;
+            border: $border;
             display: block;
             margin-bottom: 2rem;
         }
@@ -50,7 +60,7 @@
             display: flex;
             text-align: left;
             align-items: center;
-            border-bottom: 1px solid $light-gray;
+            border-bottom: $border;
             width: 100%;
 
             &:first-child {
