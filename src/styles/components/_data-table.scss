@@ -3,39 +3,56 @@
     margin-left: auto;
     margin-right: auto;
 
+    caption {
+        caption-side: top;
+        font-size: $header-font-size;
+    }
+
     thead {
         border-bottom: solid #ddd 1px;
+        width: 100%;
+
+        th {
+            font-weight: $normal-font-weight;
+        }
     }
 
     td {
         padding: 10px 0;
     }
 
-    @include media-breakpoint-down(sm)  {
-        thead {
-            border: none;
-            height: 1px;
-            margin: -1px;
-            overflow: hidden;
-            padding: 0;
-            position: absolute;
-            width: 1px;
-        }
-
+    @include media-breakpoint-down(sm) {
         tr {
-            border-bottom: 3px solid #ddd;
+            border: 1px solid $light-gray;
             display: block;
-            margin-bottom: 0.625em;
-            width: 100vw;
+            padding-bottom: 2rem;
         }
 
         td {
             display: flex;
             text-align: left;
+            border-bottom: 1px solid $light-gray;
+            width: 100vw;
+
+            &:first-child {
+                text-align: right;
+                background-color: $light-gray;
+
+                .bi, img {
+                    margin-right: 0.2rem;
+                }
+
+                &::before {
+                    text-align: left;
+                    float: left;
+                }
+            }
 
             &::before {
                 width: 35%;
+                padding-left: 0.5rem;
                 content: attr(data-label);
+                font-style: italic;
                 font-weight: bold;
             }
         }

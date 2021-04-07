@@ -1,8 +1,9 @@
 // Header styles
 .header {
-    margin: 3rem 0.1rem;
+    margin-top: 0.5rem;
+    font-size: $header-font-size;
 
-    @include media-breakpoint-up(md) {
-        margin: 3rem 3.8rem;
+    @include media-breakpoint-up(sm) {
+        font-weight: $normal-font-weight;
     }
 }

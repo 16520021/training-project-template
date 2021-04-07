@@ -1,6 +1,16 @@
 // Navigation styles
-.navbar-nav {
-    .nav-item {
-        padding: 0 1rem;
+.navbar {
+    background-color: $light-gray;
+
+    .navbar-nav {
+        .nav-item {
+            padding: 0 0.5rem;
+
+            .bi {
+                &:first-child {
+                    color: $purple;
+                }
+            }
+        }
     }
 }
