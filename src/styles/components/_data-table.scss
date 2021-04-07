@@ -9,11 +9,17 @@
     }
 
     thead {
-        border-bottom: solid #ddd 1px;
+        border-bottom: solid $medium-gray 1px;
         width: 100%;
 
         th {
             font-weight: $normal-font-weight;
+        }
+    }
+
+    tbody {
+        tr {
+            border-bottom: 1px solid $light-gray;
         }
     }
 
@@ -23,7 +29,6 @@
 
     @include media-breakpoint-down(sm) {
         tr {
-            border: 1px solid $light-gray;
             display: block;
             padding-bottom: 2rem;
         }
@@ -38,8 +43,6 @@
                 text-align: right;
                 background-color: $light-gray;
 
-                .bi, img {
-                    margin-right: 1rem;
                 }
 
                 &::before {
