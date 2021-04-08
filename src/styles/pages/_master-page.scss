@@ -1,19 +1,19 @@
 // Import global styles
-@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+//library import
+@import '../lib/bootstrap.scss';
+
+//Custom variables,mixins and functions
 @import '../utilities/variables';
 @import '../utilities/functions';
 @import '../utilities/mixins';
 
+//Reset page
 @import '../base/reset';
 @import '../base/typography';
 
-@import '../layout/navigation';
-@import '../layout/grid';
-@import '../layout/header';
-@import '../layout/footer';
-@import '../layout/forms';
+//Component styles
+@import '../components/index.scss';
 
-@import '../components/buttons';
-@import '../../styles/utilities/fonts';
-@import '../components/data-table';
-@import '../components/icons';
+//Layout styles
+@import '../layout/index.scss';
