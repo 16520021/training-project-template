@@ -21,8 +21,7 @@ ready(() => {
     });
 });
 
-function generateSampleData() {
-    let template = new RenderTemplate(<HTMLTableElement>document.getElementById("content-table"),ordering);
+function generateSampleData() {    let template = new RenderTemplate(<HTMLTableElement>document.getElementById("content-table"),ordering);
     //Generate Folder
     let folder = new Folder();
     folder.mapping(data.Folder);
@@ -33,4 +32,6 @@ function generateSampleData() {
         file.mapping(data.File[i]);
         template.render(file);
     }
+});function clearCurrentData() {
+    
 }
