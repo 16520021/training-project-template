@@ -4,7 +4,7 @@ export const data = {
       {
         Folder: {
           subItems: [],
-          id: 2,
+          id: 'fold-2',
           name: 'SubFolder',
           creator: 'Thinh Le Tat',
           createDate: '04/09/2021',
@@ -14,7 +14,7 @@ export const data = {
         },
       },
     ],
-    id: 1,
+    id: 'fold-1',
     name: 'CAS',
     createDate: '04/09/2021',
     creator: 'An Tran Hoang',
@@ -26,7 +26,7 @@ export const data = {
   File: [
     {
       extension: '.doc',
-      id: 1,
+      id: 'file-1',
       name: 'reportA',
       createDate: '04/09/2021',
       creator: 'An Tran Hoang',
@@ -36,7 +36,7 @@ export const data = {
     },
     {
       extension: '.xlxs',
-      id: 2,
+      id: 'file-2',
       name: 'reportB',
       createDate: '04/09/2021',
       creator: 'An Tran Hoang',
@@ -46,7 +46,7 @@ export const data = {
     },
     {
       extension: '.xlxs',
-      id: 3,
+      id: 'file-3',
       name: 'reportC',
       createDate: '04/09/2021',
       creator: 'An Tran Hoang',

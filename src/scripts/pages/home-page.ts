@@ -9,10 +9,19 @@ const ordering: Array<string> = [
     'name',
     'createDate',
     'creator',
+    'id',
   ];
 
 ready(() => {
     renderGrid();
+    generateSampleData();
+    let tr = document.getElementsByTagName('tr')[1].addEventListener("click",function(){
+        let id = this.cells[this.cells.length - 1].textContent;
+        console.log(id);
+    });
+});
+
+function generateSampleData() {
     let template = new RenderTemplate(<HTMLTableElement>document.getElementById("content-table"),ordering);
     //Generate Folder
     let folder = new Folder();
@@ -24,4 +33,4 @@ ready(() => {
         file.mapping(data.File[i]);
         template.render(file);
     }
-});
+}

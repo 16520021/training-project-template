@@ -20,13 +20,17 @@ export class RenderTemplate {
     for (let i = 0; i < this.ordering.length; i++) {
       // Render content
       const cell = row.insertCell(-1);
-      if (i == 0) {
+      if (this.ordering[i] === 'icon') {
         cell.className = 'pl-md-5';
         const imgNode = document.createElement('img');
         imgNode.className = 'icon';
         imgNode.src = map.get('icon');
         cell.appendChild(imgNode);
-      } else cell.innerHTML = map.get(this.ordering[i]);
+        continue;
+      }
+
+      if (this.ordering[i] === 'id') cell.className = 'd-none';
+      cell.innerHTML = map.get(this.ordering[i]);
     }
   }
 }
