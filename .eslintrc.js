@@ -10,7 +10,8 @@ module.exports = {
   },
   ignorePatterns: ['/dist/js/**.js', 'webpack.config.js'],
   rules: {
-    'prettier/prettier': ['error'],
+      'prettier/prettier': ['error'],
+      "import/prefer-default-export": "off",
     'linebreak-style': [
       'error',
       process.platform === 'win32' ? 'windows' : 'unix',

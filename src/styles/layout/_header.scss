@@ -2,8 +2,5 @@
 .header {
     margin-top: 0.5rem;
     font-size: $header-font-size;
-
-    @include media-breakpoint-up(sm) {
-        font-weight: $normal-font-weight;
-    }
+    font-weight: $normal-font-weight;
 }
