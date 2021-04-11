@@ -20,10 +20,11 @@ export class File extends Item {
         this.name = input.name;
         this.creator = input.creator;
         this.createDate = input.createDate;
-        this.modifiedBy = input.modifiedBy;
+        this.modifiedBy = input.modifiedBy; 
         this.modifiedAt = input.modifiedAt;
         this.extension = input.extension;
         this.icon = input.icon;
+        this.parent = input.parent;
         return input;
     }
 

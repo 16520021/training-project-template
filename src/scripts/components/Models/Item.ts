@@ -16,6 +16,8 @@ export class Item implements IitemOperations, IMapping {
 
   icon: string;
 
+  parent: string;
+
   constructor(
     id?: number,
     name?: string,
@@ -24,6 +26,7 @@ export class Item implements IitemOperations, IMapping {
     modifiedAt?: string,
     modifiedBy?: string,
     icon?: string,
+    parent?: string,
   ) {
     if (id) this.id = id;
     if (name) this.name = name;
@@ -32,11 +35,16 @@ export class Item implements IitemOperations, IMapping {
     if (modifiedAt) this.modifiedAt = modifiedAt;
     if (modifiedBy) this.modifiedBy = modifiedBy;
     if (icon) this.icon = icon;
+    if (parent) this.parent = parent;
   }
 
-  add(item: any) {}
+  add(item: any) {
+    window.localStorage.setItem(item.id,item);
+  }
 
-  remove(item: any) {}
+  remove(item: any) {
+    window.localStorage.removeItem(item.id);
+  }
 
   mapping(item: any) {}
 }

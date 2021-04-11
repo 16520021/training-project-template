@@ -26,6 +26,7 @@ export class Folder extends Item {
     this.modifiedAt = input.modifiedAt;
     this.subItems = input.subItems;
     this.icon = input.icon;
+    this.parent = input.parent;
     return input;
   }
 }
