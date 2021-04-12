@@ -10,14 +10,13 @@ export class RenderTemplate {
     this.ordering = ordering;
   }
 
-  render(item: Item) {
-    const numberOfLoop: number = 0;
+  render(item: Item): HTMLTableRowElement {
     const row = this.table
       .getElementsByTagName('tbody')[0]
       .insertRow(-1);
     const map = new Map(Object.entries(item));
 
-    for (let i = 0; i < this.ordering.length; i++) {
+    for (let i = 0; i <= this.ordering.length; i++) {
       // Render content
       const cell = row.insertCell(-1);
       if (this.ordering[i] === 'icon') {
@@ -28,9 +27,19 @@ export class RenderTemplate {
         cell.appendChild(imgNode);
         continue;
       }
-
+      // Hide ID col
       if (this.ordering[i] === 'id') cell.className = 'd-none';
-      cell.innerHTML = map.get(this.ordering[i]);
+      // Close button
+      if (i === this.ordering.length) {
+        const closeBtn = document.createElement('button');
+        closeBtn.className = 'close';
+        const closeIco = document.createElement('span');
+        closeIco.innerHTML = '&times;';
+        closeBtn.appendChild(closeIco);
+        cell.appendChild(closeBtn);
+      } else cell.innerHTML = map.get(this.ordering[i]);
     }
+
+    return row;
   }
 }

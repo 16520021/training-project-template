@@ -2,13 +2,13 @@ import { IitemOperations } from '../Shared/_IitemOperations';
 import { IMapping } from '../Shared/_IMapping';
 
 export class Item implements IitemOperations, IMapping {
-  id: number;
+  id: string;
 
   name: string;
 
-  createDate: string;
+  createDate: string = '049/04/2021';
 
-  creator: string;
+  creator: string = 'An Tran Hoang';
 
   modifiedAt: string;
 
@@ -19,14 +19,14 @@ export class Item implements IitemOperations, IMapping {
   parent: string;
 
   constructor(
-    id?: number,
+    id?: string,
     name?: string,
     createDate?: string,
     creator?: string,
     modifiedAt?: string,
     modifiedBy?: string,
     icon?: string,
-    parent?: string,
+    parent: string = 'root',
   ) {
     if (id) this.id = id;
     if (name) this.name = name;
@@ -38,12 +38,12 @@ export class Item implements IitemOperations, IMapping {
     if (parent) this.parent = parent;
   }
 
-  add(item: any) {
-    window.localStorage.setItem(item.id,item);
+  add() {
+    window.localStorage.setItem(this.id, JSON.stringify(this));
   }
 
-  remove(item: any) {
-    window.localStorage.removeItem(item.id);
+  remove() {
+    window.localStorage.removeItem(this.id);
   }
 
   mapping(item: any) {}

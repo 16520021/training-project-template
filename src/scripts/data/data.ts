@@ -4,23 +4,7 @@ export const data = {
       {
         Folder: {
           parent: 'fold-1',
-          subItems: [
-            {
-              File: [
-                {
-                  parent: 'fold-2',
-                  extension: '.doc',
-                  id: 'file-1',
-                  name: 'reportT',
-                  createDate: '04/09/2021',
-                  creator: 'Thanh Pham',
-                  modifiedAt: '',
-                  modifiedBy: '',
-                  icon: './dist/image/excel.png',
-                }
-              ]
-            }
-          ],
+          subItems: [],
           id: 'fold-2',
           name: 'SubFolder',
           creator: 'Thinh Le Tat',
