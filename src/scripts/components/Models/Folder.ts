@@ -1,5 +1,5 @@
+import { properties } from '../../utilities/constant';
 import { Item } from './Item';
-import { File } from './File';
 
 export class Folder extends Item {
   subItems: Array<any>;
@@ -25,19 +25,27 @@ export class Folder extends Item {
       parent,
     );
     this.subItems = [];
-    this.icon = './dist/image/folder.png';
+    this.icon = properties.FOLDER_DEFAULT_URL;
   }
 
-  add() {
+  addOrUpdate(mode: string) {
     // Add folder to local storage
-    super.add();
+    localStorage.setItem(this.id, JSON.stringify(this));
 
     // Add folder to folder
-    if (this.parent !== 'root') {
+    if (this.parent !== properties.BASE_DIRECTORY) {
       const folder: Folder = JSON.parse(
         localStorage.getItem(this.parent),
       );
-      folder.subItems.push(this);
+      if (mode === properties.CREATE_MODE) {
+        folder.subItems.push(this);
+      } else {
+        for (let i = 0; i < folder.subItems.length; i += 1) {
+          if (folder.subItems[i].id === this.id) {
+            folder.subItems[i].mapping(this);
+          }
+        }
+      }
       localStorage.setItem(folder.id, JSON.stringify(folder));
     }
   }
@@ -46,24 +54,31 @@ export class Folder extends Item {
     // Remove folder from local storage
     super.remove();
 
-    // Remove folder from folder
-    const folder: Folder = JSON.parse(
-      localStorage.getItem(this.parent),
-    );
-    let pos: number = 0;
-    for (let i = 0; i < folder.subItems.length; i++) {
-      if (folder.subItems[i].id === this.id) pos = i;
-    }
-    folder.subItems.splice(pos + 1, 1);
-
-    // Remove all files from folder
-    for (let i = 0; i < localStorage.length; i++) {
-      const item: File = JSON.parse(
-        localStorage.getItem(localStorage.key(i)),
-      );
-      if (item.parent === this.id) {
-        localStorage.removeItem(item.id);
+    // Remove all items from folder
+    if (this.subItems.length !== 0) {
+      for (let i = 0; i < localStorage.length; i += 1) {
+        const item: any = JSON.parse(
+          localStorage.getItem(localStorage.key(i)),
+        );
+        console.log(item.parent);
+        if (item.parent === this.id) {
+          localStorage.removeItem(item.id);
+        }
       }
+    }
+
+    // Remove folder from parent
+    if (this.parent !== 'root') {
+      const folder: Folder = JSON.parse(
+        window.localStorage.getItem(this.parent),
+      );
+      let pos: number = 0;
+      for (let i = 0; i < folder.subItems.length; i += 1) {
+        if (folder.subItems[i].id === this.id) pos = i;
+      }
+      folder.subItems.splice(pos, 1);
+      // Update local storage
+      localStorage.setItem(folder.id, JSON.stringify(folder));
     }
   }
 
@@ -77,6 +92,7 @@ export class Folder extends Item {
     if (input.subItems) this.subItems = input.subItems;
     if (input.icon) this.icon = input.icon;
     if (input.parent) this.parent = input.parent;
-    return this;
+    // super.mapping(input);
+    // if (input.subItems) this.subItems = input.subItems;
   }
 }

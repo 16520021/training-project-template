@@ -16,7 +16,7 @@ export class RenderTemplate {
       .insertRow(-1);
     const map = new Map(Object.entries(item));
 
-    for (let i = 0; i <= this.ordering.length; i++) {
+    for (let i = 0; i <= this.ordering.length; i += 1) {
       // Render content
       const cell = row.insertCell(-1);
       if (this.ordering[i] === 'icon') {
@@ -29,8 +29,15 @@ export class RenderTemplate {
       }
       // Hide ID col
       if (this.ordering[i] === 'id') cell.className = 'd-none';
-      // Close button
+      // Ultility button
       if (i === this.ordering.length) {
+        const editBtn = document.createElement('button');
+        editBtn.className = 'edit';
+        const editText = document.createElement('span');
+        editText.innerHTML = 'edit';
+        editBtn.appendChild(editText);
+        cell.appendChild(editBtn);
+
         const closeBtn = document.createElement('button');
         closeBtn.className = 'close';
         const closeIco = document.createElement('span');

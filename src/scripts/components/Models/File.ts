@@ -1,3 +1,4 @@
+import { properties } from "../../utilities/constant";
 import { Folder } from "./Folder";
 import { Item } from "./Item";
 
@@ -14,16 +15,25 @@ export class File extends Item {
         protected extension: string = ".doc") {
         super(id, name, createDate, creator, modifiedAt, modifiedBy, icon, parent);
         this.extension = extension;
-        this.icon = './dist/image/excel.png';
+        this.icon = properties.FILE_DEFAULT_URL;
     }
 
-    add() {
+    addOrUpdate(mode: string) {
         //Add file to local storage
-        super.add();
-        if (this.parent !== 'root') {
-            //Add file to folder
+        super.addOrUpdate(mode);
+
+        if (this.parent !== properties.BASE_DIRECTORY) {
+            //Add file to folder or update file name
             let folder: Folder = JSON.parse(window.localStorage.getItem(this.parent));
-            folder.subItems.push(this);
+            if (mode === properties.CREATE_MODE) {
+                folder.subItems.push(this);
+            } else {
+                for (let i = 0; i<folder.subItems.length; i++) {
+                    if (folder.subItems[i].id === this.id) {
+                        folder.subItems[i].name = this.name;
+                    }
+                }
+            }
             //Update local storage
             localStorage.setItem(folder.id, JSON.stringify(folder));
         }
@@ -56,7 +66,7 @@ export class File extends Item {
         if (input.extension) this.extension = input.extension;
         if (input.icon) this.icon = input.icon;
         if (input.parent) this.parent = input.parent;
-        return this;
+        // super.mapping(input);
+        // if (input.extension) this.extension = input.extension;
     }
-
 }

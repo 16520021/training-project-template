@@ -1,4 +1,4 @@
 export interface IitemOperations {
-  add(item: any): any;
-  remove(item: any): any;
+  addOrUpdate(mode: string): any;
+  remove(): any;
 }
